@@ -29,27 +29,27 @@ public class JpaMain {
 
     //비즈니스 로직
     private static void logic(EntityManager em) {
-        String id = "id1";
-        Member member = new Member();
-        member.setId(id);
-        member.setUsername("란");
-        member.setAge(20);
+        TestMember member1 = new TestMember();
+        member1.setUsername("란");
+        member1.setAge(20);
 
-        // 등록
-        em.persist(member);
+        TestMember member2 = new TestMember();
+        member2.setUsername("윤");
+        member2.setAge(6);
 
-        // 수정
-        member.setAge(20);
+        TestTeam team1 = new TestTeam();
+        team1.setName("team1");
+
+        member1.setTeam(team1);
+        member2.setTeam(team1);
+
+        em.persist(member1);
+        em.persist(member2);
 
         // 한건 조회
-        Member findMember = em.find(Member.class, id);
+        TestMember findMember = em.find(TestMember.class, member1.getId());
+        TestTeam team = findMember.getTeam();
         System.out.println("findMember:" + findMember);
 
-        // 목록 조회
-        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
-        System.out.println("members.size=" + members.size());
-
-        // 삭제
-        em.remove(member);
     }
 }
