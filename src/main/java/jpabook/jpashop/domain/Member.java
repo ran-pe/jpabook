@@ -1,4 +1,4 @@
-package jpabook.model.entity;
+package jpabook.jpashop.domain;
 
 
 import lombok.Getter;
@@ -17,15 +17,18 @@ public class Member extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "ID")
-    private String id;
+    private Long id;
 
     private String name;
 
-    private String city;
+//    private String city;
+//
+//    private String street;
+//
+//    private String zipcode;
 
-    private String street;
-
-    private String zipcode;
+    @Embedded
+    private Address address;
 
     @OneToMany(mappedBy = "member") //연관관계의 주인이 아님
     private List<Order> orders = new ArrayList<Order>();
