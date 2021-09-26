@@ -33,5 +33,11 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member") //연관관계의 주인이 아님
     private List<Order> orders = new ArrayList<Order>();
 
+    public Address getAddress() {
+        return address;
+    }
 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }
