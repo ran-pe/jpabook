@@ -37,7 +37,7 @@ public class ItemController {
     public String list(Model model) {
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
-        return "itmes/itemList";
+        return "items/itemList";
     }
 
     /**
