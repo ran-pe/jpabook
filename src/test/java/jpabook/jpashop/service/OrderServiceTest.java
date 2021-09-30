@@ -55,7 +55,7 @@ public class OrderServiceTest {
     }
 
     @Test(expected = NotEnoughStockException.class)
-    public void 상품주문_재고수량초과() throws Exception {
+    public void 상품주문_재고수량초과() {
         //Given
         Member member = createMember();
         Item item = createBook("시골 JPA", 10000, 10);// 이름, 가격, 재고

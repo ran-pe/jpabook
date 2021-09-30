@@ -21,16 +21,10 @@ public class Member extends BaseEntity {
 
     private String name;
 
-//    private String city;
-//
-//    private String street;
-//
-//    private String zipcode;
-
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member") //연관관계의 주인이 아님
+    @OneToMany(mappedBy = "member") //연관관계의 주인은 Order
     private List<Order> orders = new ArrayList<Order>();
 
     public Address getAddress() {
