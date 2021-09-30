@@ -36,7 +36,7 @@ public class OrderServiceTest {
     OrderRepository orderRepository;
 
     @Test
-    public void 상품주문() throws Exception {
+    public void 상품주문() {
         // Given
         Member member = createMember();
         Item item = createBook("시골JPA", 10000, 10);
